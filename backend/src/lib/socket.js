@@ -10,13 +10,19 @@ app.get("/", (req, res) => {
   res.send("Socket server is running");
 });
 
+// const io = new Server(server, {
+//   cors: {
+//     origin: ["http://localhost:5173"],
+//     methods: ["GET", "POST"]
+//   },
+//   // Add explicit path for Socket.io to avoid conflicts
+//   path: "/socket.io/"
+// });
 const io = new Server(server, {
   cors: {
     origin: ["http://localhost:5173"],
-    methods: ["GET", "POST"]
   },
-  // Add explicit path for Socket.io to avoid conflicts
-  path: "/socket.io/"
+  path: "/socket.io/" // Add this line
 });
 
 const userSocketMap = {};
